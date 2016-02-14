@@ -1,4 +1,4 @@
-import GraphQLFragmentPointer from 'react-relay/lib/GraphQLFragmentPointer';
+import RelayFragmentPointer from 'react-relay/lib/RelayFragmentPointer';
 import Relay from 'react-relay';
 import RelayQuery from 'react-relay/lib/RelayQuery';
 import RelayRenderer from 'react-relay/lib/RelayRenderer';
@@ -128,7 +128,7 @@ export default class IsomorphicRenderer extends RelayRenderer {
     }
 }
 
-const queuedStore = RelayStoreData.getDefaultInstance().getQueuedStore();
+const queuedStore = RelayStore.getStoreData().getQueuedStore();
 
 function checkCache(querySet) {
     let done = true;
@@ -157,4 +157,4 @@ function createFragmentPointersForRoots(querySet) {
 }
 
 const createFragmentPointerForRoot = query =>
-    query && GraphQLFragmentPointer.createForRoot(queuedStore, query);
+    query && RelayFragmentPointer.createForRoot(queuedStore, query);

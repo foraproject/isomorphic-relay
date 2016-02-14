@@ -1,9 +1,10 @@
 import Relay from 'react-relay';
 import RelayQuery from 'react-relay/lib/RelayQuery';
+import RelayStore from 'react-relay/lib/RelayStore';
 import RelayStoreData from 'react-relay/lib/RelayStoreData';
 import toGraphQL from 'react-relay/lib/toGraphQL';
 
-const globalStoreData = RelayStoreData.getDefaultInstance();
+const globalStoreData = RelayStore.getStoreData();
 
 export default function prepareData({Component, route}) {
     return new Promise((resolve, reject) => {

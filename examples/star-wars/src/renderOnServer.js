@@ -10,7 +10,7 @@ const GRAPHQL_URL = `http://localhost:8080/graphql`;
 
 Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer(GRAPHQL_URL));
 
-RelayStoreData.getDefaultInstance().getChangeEmitter().injectBatchingStrategy(() => {});
+RelayStore.getStoreData().getChangeEmitter().injectBatchingStrategy(() => {});
 
 export default (res, next) => {
     IsomorphicRelay.prepareData(rootContainerProps).then(data => {
